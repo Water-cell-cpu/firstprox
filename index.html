@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy Example</title>
+</head>
+<body>
+    <h1>Proxy Example</h1>
+    <button onclick="makeRequest()">Make Request</button>
+
+    <script>
+        function makeRequest() {
+            const targetUrl = "https://example.com/api/data"; // Target URL to proxy
+            const proxyUrl = "https://your-github-pages-url.com/proxy"; // Proxy URL
+
+            fetch(proxyUrl + "?url=" + encodeURIComponent(targetUrl))
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Data from API: ", data);
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+        }
+    </script>
+</body>
+</html>
